@@ -1,15 +1,15 @@
 export const Solution = {
   maxSubArray: (nums: number[]): number => {
-    let maxSub = nums[0];
+    let maxSum = nums[0];
     let curSum = 0;
 
-    for (let i = 0; i < nums.length; i++) {
+    nums.forEach((num) => {
       if (curSum < 0) {
         curSum = 0;
       }
-      curSum += nums[i];
-      maxSub = Math.max(maxSub, curSum);
-    }
-    return maxSub;
+      curSum += num;
+      maxSum = Math.max(maxSum, curSum);
+    });
+    return maxSum;
   },
 };
