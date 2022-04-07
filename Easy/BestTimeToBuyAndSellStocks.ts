@@ -32,5 +32,17 @@ export const linearSolution = {
       r++;
     }
     return maxP;
-  },
+  }, // 72ms, 52.3MB
+  secondTry: function maxProfit(prices: number[]): number {
+    let l = 0;
+    let res = 0;
+
+    for (let r = 1; r < prices.length; r++) {
+      if (prices[l] > prices[r]) {
+        l = r;
+      }
+      res = Math.max(res, prices[r] - prices[l]);
+    }
+    return res;
+  }, // 120ms, 52.3MB
 };
